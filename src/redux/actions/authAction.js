@@ -41,7 +41,6 @@ export function authLogin(payload) {
 }
 
 export function authMe() {
- 
   return async (dispatch) => {
     dispatch(isloadingStart());
     syncToken();
@@ -50,25 +49,25 @@ export function authMe() {
       const data = response?.data;
 
       dispatch(loginHandle(data));
-      if(data.msg === 'Success'){
+      if (data.msg === "Success") {
         localStorage.setItem("token", data?.token);
       }
-     
+
       syncToken();
       dispatch({
         type: "loadingEnd",
       });
       return data;
     } catch (err) {
-           console.log(err)
-           console.log('masuk sini')
+      console.log(err);
+      console.log("masuk sini");
 
       dispatch({
         type: "loadingEnd",
       });
 
       let data = err?.response?.data;
-      console.log(err)
+      console.log(err);
       return data;
     }
   };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate , useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { authMe } from "../redux/actions/authAction";
 export default function PrivateRoute({ children }) {
@@ -10,15 +10,11 @@ export default function PrivateRoute({ children }) {
   const getAuthMe = async () => {
     const response = await dispatch(authMe());
     console.log(response.status);
-    if(response.status === 'Success'){
-      auth = true
+    if (response.status === "Success") {
+      auth = true;
     }
-   
-    console.log(auth)
-  
-    
-    
-    
+
+    console.log(auth);
   };
 
   React.useEffect(() => {
@@ -31,10 +27,8 @@ export default function PrivateRoute({ children }) {
 
   if (isLoading) {
     return <div>Loading</div>;
-  }else{
-    return token !== undefined  ? children : <Navigate to="/login" />;
+  } else {
+    return token !== undefined ? children : <Navigate to="/login" />;
   }
-
- 
 }
 //
