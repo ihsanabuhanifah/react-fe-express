@@ -25,7 +25,7 @@ function App() {
         }
       >
         <Route path="dashboard" element={<Dashboard />} />
-        \<Route path="chat" element={<Chat />} />
+        <Route path="chat" element={<Chat />} />
       </Route>
       <Route path="/" element={<Navigate replace to="/login" />} />
       <Route path="*" element={<Navigate replace to="/login" />} />
