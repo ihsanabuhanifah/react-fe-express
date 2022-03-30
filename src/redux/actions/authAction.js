@@ -91,6 +91,7 @@ const registerHandle = (data) => {
 const loginHandle = (data) => {
   return {
     type: "Login",
+    id : data?.user?.id,
     nama: data?.user?.name,
     email: data?.user?.email,
 
